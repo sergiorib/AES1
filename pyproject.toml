@@ -1,0 +1,30 @@
+[project]
+name = "aes1"
+version = "0.1.0"
+description = "Analytics Engineer Stack 1"
+authors = [
+    {name = "Sergio Ribeiro",email = "sergiorcerqueira@gmail.com"}
+]
+readme = "README.md"
+requires-python = ">=3.13,<3.15"
+dependencies = [
+    "faker (>=40.19.1,<41.0.0)",
+    "pandas (>=3.0.3,<4.0.0)",
+    "delta-spark (==3.2.0)",
+    "pyspark (==3.5.3)",
+    "dbt-core (>=1.11.11,<2.0.0)",
+    "dbt-postgres (>=1.10.0,<2.0.0)",
+    "dbt-spark (>=1.10.1,<2.0.0)",
+    "dotenv (>=0.9.9,<0.10.0)",
+    "apache-airflow (>=3.2.2,<4.0.0)",
+    "streamlit (>=1.58.0,<2.0.0)",
+    "plotly (>=6.8.0,<7.0.0)",
+    "duckdb (>=1.5.3,<2.0.0)"
+]
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry]
+package-mode = false
