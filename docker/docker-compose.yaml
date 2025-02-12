@@ -1,0 +1,78 @@
+version: '3.8'
+
+# Aqui criamos um "molde" base para não repetir configurações
+x-airflow-common:
+  &airflow-common
+  build: 
+    context: .
+    dockerfile: Dockerfile
+  env_file:
+    - .env
+  environment:
+    &airflow-common-env
+    AIRFLOW__CORE__EXECUTOR: LocalExecutor
+    AIRFLOW__DATABASE__SQL_ALCHEMY_CONN: postgresql+psycopg2://airflow:airflow@postgres/airflow
+    AIRFLOW__CORE__LOAD_EXAMPLES: 'false'
+    AIRFLOW__CORE__FERNET_KEY: ''
+    AIRFLOW__WEBSERVER__SECRET_KEY: 'uma_chave_secreta_qualquer_123'  # <-- Adicione esta linha    
+    # Os caminhos de volume vistos por dentro do container
+    AIRFLOW__CORE__DAGS_FOLDER: /opt/airflow/dags
+  volumes:
+    # Mapeamento: ./pasta_no_windows : /pasta_no_container
+    - ../src/dags:/opt/airflow/dags
+    - ../src/scripts:/opt/airflow/scripts
+    - ../src/dbt_aes1:/opt/airflow/dbt_aes1
+    - ../datalake:/opt/airflow/datalake
+    - ./webserver_config.py:/opt/airflow/webserver_config.py    
+  depends_on:
+    postgres:
+      condition: service_healthy
+
+services:
+  # O nosso Banco de Dados blindado
+  postgres:
+    image: postgres:13
+    environment:
+      POSTGRES_USER: airflow
+      POSTGRES_PASSWORD: airflow
+      POSTGRES_DB: airflow
+    ports:
+      - "5432:5432"
+    healthcheck:
+      test: ["CMD", "pg_isready", "-U", "airflow"]
+      interval: 5s
+      retries: 5
+
+  # O script "fantasma" que inicializa tudo automaticamente
+  airflow-init:
+    <<: *airflow-common
+    command: version
+    environment:
+      <<: *airflow-common-env
+      _AIRFLOW_DB_UPGRADE: 'true'
+      _AIRFLOW_WWW_USER_CREATE: 'true'
+      _AIRFLOW_WWW_USER_USERNAME: admin
+      _AIRFLOW_WWW_USER_PASSWORD: admin
+
+  # O Servidor Web (Interface Visual)
+  airflow-webserver:
+    <<: *airflow-common
+    command: webserver
+    ports:
+      - "8082:8080" # A porta 8082 que você pediu mapeada para o Airflow
+    healthcheck:
+      test: ["CMD", "curl", "--fail", "http://localhost:8080/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+    depends_on:
+      airflow-init:
+        condition: service_completed_successfully
+
+  # O Coração do Motor (Agendador e Executor de Tarefas)
+  airflow-scheduler:
+    <<: *airflow-common
+    command: scheduler
+    depends_on:
+      airflow-init:
+        condition: service_completed_successfully
