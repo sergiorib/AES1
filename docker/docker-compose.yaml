@@ -1,5 +1,5 @@
 version: '3.8'
-
+  
 # Aqui criamos um "molde" base para não repetir configurações
 x-airflow-common:
   &airflow-common
