@@ -1,0 +1,9 @@
+aes1_profile:
+  target: dev
+  outputs:
+    dev:
+      type: duckdb
+      # O dbt vai criar um ficheiro de base de dados DuckDB diretamente na nossa pasta Gold!
+      path: /opt/airflow/datalake/gold/aes1_gold.duckdb
+      extensions:
+        - parquet
