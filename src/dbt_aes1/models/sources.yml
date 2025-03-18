@@ -1,0 +1,11 @@
+Version: 2
+
+sources:
+  - name: datalake_silver
+    description: "Camada Silver contendo os dados limpos e particionados"
+    tables:
+      - name: aes1_transacoes
+        description: "Tabela unificada de transações financeiras com flags de risco"
+        meta:
+          # Caminho exato como o container do Airflow enxerga o Data Lake
+          external_location: "read_parquet('/opt/airflow/datalake/silver/aes1_transacoes/*/*.parquet')"
