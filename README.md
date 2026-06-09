@@ -10,6 +10,35 @@
 [![Streamlit](https://img.shields.io/badge/Streamlit-FF4B4B?style=for-the-badge&logo=Streamlit&logoColor=white)]()
 [![Gemini](https://img.shields.io/badge/Google%20Gemini-8E75B2.svg?style=for-the-badge&logo=Google-Gemini&logoColor=white)]()
 
+- [🚀Analytics Engineering Stack 1 (AES1)](#analytics-engineering-stack-1-aes1)
+  - [🎯 1. O Objetivo](#-1-o-objetivo)
+  - [📖 2. O cenário](#-2-o-cenário)
+  - [🏗️ 3. A Arquitetura (MDS - Modern Data Stack)](#️-3-a-arquitetura-mds---modern-data-stack)
+    - [Decisões Técnicas (oor que estas ferramentas?)](#decisões-técnicas-oor-que-estas-ferramentas)
+  - [🗄️ 4. Os dados](#️-4-os-dados)
+    - [Modelo dos dados originais (raw)](#modelo-dos-dados-originais-raw)
+    - [Modelo dimensional (Gold)](#modelo-dimensional-gold)
+    - [Transformações realizadas:](#transformações-realizadas)
+  - [⚙️ 5. A Pipeline](#️-5-a-pipeline)
+  - [📊 6. Resultados](#-6-resultados)
+    - [Composição da Receita e Retenção](#composição-da-receita-e-retenção)
+      - [**Qual grupo de clientes (safra de cadastro) gera o maior volume financeiro atualmente ?**](#qual-grupo-de-clientes-safra-de-cadastro-gera-o-maior-volume-financeiro-atualmente-)
+      - [A empresa está conseguindo manter o engajamento dos usuários mais antigos?](#a-empresa-está-conseguindo-manter-o-engajamento-dos-usuários-mais-antigos)
+    - [Monitoramento de Risco (Fraudes):](#monitoramento-de-risco-fraudes)
+      - [Como identificar rapidamente transações suspeitas ou anômalas, cruzando o valor atual transacionado com o histórico financeiro do cliente?](#como-identificar-rapidamente-transações-suspeitas-ou-anômalas-cruzando-o-valor-atual-transacionado-com-o-histórico-financeiro-do-cliente)
+  - [⚙️ 7. Como Executar o projeto na sua máquina](#️-7-como-executar-o-projeto-na-sua-máquina)
+    - [Pré-requisitos](#pré-requisitos)
+    - [1. Clonar o repositório do GITHUB e entra na pasta do projeto](#1-clonar-o-repositório-do-github-e-entra-na-pasta-do-projeto)
+    - [2. Instalar as dependências locais e isolar o ambiente](#2-instalar-as-dependências-locais-e-isolar-o-ambiente)
+    - [3. Executar o script de SETUP do projeto](#3-executar-o-script-de-setup-do-projeto)
+    - [4. Executar a pipeline (Apache Airflow)](#4-executar-a-pipeline-apache-airflow)
+    - [5. Ver o resultado (Dashboard Streamlit)](#5-ver-o-resultado-dashboard-streamlit)
+    - [Pra geração de outras datas (além da data corrente)](#pra-geração-de-outras-datas-além-da-data-corrente)
+    - [Problemas de permissão de pasta](#problemas-de-permissão-de-pasta)
+    - [Pastas e arquivos do projeto](#pastas-e-arquivos-do-projeto)
+  - [📞 Contatos](#-contatos)
+
+
 ## 🎯 1. O Objetivo
 O objetivo deste projeto é demonstrar meu conhecimento de implementação e uso de uma arquitetura de dados moderna (Modern Data Stack) de ponta a ponta em um caso simples de analise de dados. 
 
@@ -237,9 +266,7 @@ AES1/
 Este projeto foi desenvolvido originalmente em [2025], mas foi migrado para este repositório público em [2026] para fins de exibição de portfólio, preservando o histórico real de commits e evolução do código.
 
 ## 📞 Contatos
-Criado por **Sérgio Ribeiro Cerqueira**  
-Fique à vontade para entrar em contato!
-
-* [**Linkedin**](https://www.linkedin.com/in/sergio-ribeiro-cerqueira)
-* [**Portfólio**](https://www.linkedin.com/in/sergio-ribeiro-cerqueira)
-* **[Sergio.rib@live.com](sergio.rib@live.com)**
+Autor: Sergio Ribeiro Cerqueira   
+Contato: sergio.rib@live.com     
+Linkedin:  [www.linkedin.com/in/sergio-ribeiro-cerqueira](https://www.linkedin.com/in/sergio-ribeiro-cerqueira)  
+Portfólio:  [https://github.com/sergiorib/sergiorib](https://github.com/sergiorib/sergiorib)
