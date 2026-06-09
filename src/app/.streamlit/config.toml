@@ -1,0 +1,8 @@
+[theme]
+base="light"
+primaryColor = "#d62728" # Vermelho para alertas/riscos
+backgroundColor = "#3c096c" # Fundo escuro elegante
+secondaryBackgroundColor = "#4f58a5" # Fundo dos cards e barra lateral
+textColor = "#FAFAFA" # Texto claro
+font = "sans serif"
+
