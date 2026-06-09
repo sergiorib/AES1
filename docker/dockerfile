@@ -1,0 +1,21 @@
+# Usamos uma versão oficial e incrivelmente estável do Airflow
+FROM apache/airflow:2.9.2-python3.11
+
+# Entramos como administrador no Linux do container para instalar o Java
+USER root
+RUN apt-get update \
+    && apt-get install -y --no-install-recommends \
+    openjdk-17-jre-headless \
+    && apt-get autoremove -yqq --purge \
+    && apt-get clean \
+    && rm -rf /var/lib/apt/lists/*
+
+# Apontamos o caminho do Java para o PySpark conseguir achar
+ENV JAVA_HOME=/usr/lib/jvm/java-17-openjdk-amd64
+
+# Voltamos para o usuário padrão por segurança
+USER airflow
+
+# Copiamos a lista de pacotes e mandamos o pip instalar tudo
+COPY requirements.txt /requirements.txt
+RUN pip install --no-cache-dir -r /requirements.txt
