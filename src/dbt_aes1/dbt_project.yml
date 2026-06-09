@@ -1,0 +1,9 @@
+name: 'aes1_gold'
+version: '1.0.0'
+config-version: 2
+profile: 'aes1_profile'
+model-paths: ["models"]
+clean-targets: ["target", "dbt_packages"]
+models:
+  aes1_gold:
+    +materialized: table
