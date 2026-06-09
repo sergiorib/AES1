@@ -200,36 +200,38 @@ No local em que deu "permission denied" (pasta 'datalake' por exemplo).
 
 ### Pastas e arquivos do projeto
 
+```text
 AES1/
-├── datalake/                 # Data Lake (Arquitetura Medalhão)
-│   ├── bronze/               # Ingestão inicial
-│   ├── gold/                 # DW Analítico (DuckDB)
-│   ├── raw/                  # Arquivos transacionais brutos (.jsonl)
-│   └── silver/               # Dados limpos e processados
-├── doc/                      # Documentação e ativos visuais
-├── src/                      # Código-fonte
-│   ├── app/                  # Frontend (Streamlit)
-│   │   ├── .streamlit/       # Configurações de layout
-│   │   └── aes1_dashboard.py # App de visualização
-│   ├── dags/                 # Fluxos de automação (Airflow)
-│   │   └── aes1_pipeline.py  # Orquestração da esteira
-│   ├── dbt_aes1/             # Projeto de transformação (dbt)
-│   │   ├── models/           # Transformações SQL
-│   │   ├── dbt_project.yml   # Configuração do projeto
-│   │   └── profiles.yml      # Conexão com banco Gold
-│   ├── scripts/              # Processamento e carga
+├── datalake/                           # Data Lake (Arquitetura Medalhão)
+│   ├── bronze/                         # Ingestão inicial
+│   ├── gold/                           # DW Analítico (DuckDB)
+│   ├── raw/                            # Arquivos transacionais brutos (.jsonl)
+│   └── silver/                         # Dados limpos e processados
+├── doc/                                # Documentação e ativos visuais
+├── src/                                # Código-fonte
+│   ├── app/                            # Frontend (Streamlit)
+│   │   ├── .streamlit/                 # Configurações de layout
+│   │   └── aes1_dashboard.py           # App de visualização
+│   ├── dags/                           # Fluxos de automação (Airflow)
+│   │   └── aes1_pipeline.py            # Orquestração da esteira
+│   ├── dbt_aes1/                       # Projeto de transformação (dbt)
+│   │   ├── models/                     # Transformações SQL
+│   │   ├── dbt_project.yml             # Configuração do projeto
+│   │   └── profiles.yml                # Conexão com banco Gold
+│   ├── scripts/                        # Processamento e carga
 │   │   ├── aes1_base_clientes.csv      # Dados mestres
 │   │   ├── aes1_gerador_raw.py         # Ingestão de dados
 │   │   ├── aes1_gerar_base_clientes.py # Gerador da base mestre
 │   │   ├── aes1_ingestao_bronze.py     # Carga Bronze
 │   │   ├── aes1_limpar_datalake.py     # Limpeza do ambiente
 │   │   └── aes1_processamento_silver.py# Motor PySpark
-│   └── utils/                # Infraestrutura de suporte
-│       └── aes1_setup.py     # Automação de setup (Docker)
-├── docker-compose.yaml       # Infraestrutura de Containers
-├── poetry.toml               # Configurações do gerenciador de dependências
-├── pyproject.toml            # Definições de dependências e ambiente
-├── README.md                 # Documentação principal
+│   └── utils/                          # Infraestrutura de suporte
+│       └── aes1_setup.py               # Automação de setup (Docker)
+├── docker-compose.yaml                 # Infraestrutura de Containers
+├── poetry.toml                         # Configurações do gerenciador de dependências
+├── pyproject.toml                      # Definições de dependências e ambiente
+└── README.md                           # Documentação principal
+```
 
 📌Nota sobre Histórico de commits:  
 Este projeto foi desenvolvido originalmente em [2025], mas foi migrado para este repositório público em [2026] para fins de exibição de portfólio, preservando o histórico real de commits e evolução do código.
