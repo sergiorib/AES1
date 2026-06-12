@@ -1,5 +1,5 @@
 # 🚀Analytics Engineering Stack 1 (AES1)
-<img src="./doc/aes1_capa.png" />
+<img src="./doc/aes1_capa.avif" />
 
 [![Airflow](https://img.shields.io/badge/Apache%20Airflow-017CEE?style=for-the-badge&logo=Apache%20Airflow&logoColor=white)]()
 [![Spark](https://img.shields.io/badge/Apache%20Spark-E25A1C?style=for-the-badge&logo=Apache%20Spark&logoColor=white)]()
@@ -65,7 +65,7 @@ Como identificar rapidamente transações suspeitas ou anômalas, cruzando o val
 O objetivo deste projeto mé ostrar como estruturar esses dados brutos, do momento em que são gerados até a sua exibição final, construindo um painel analítico focado em responder a essas exatas perguntas de forma clara e automatizada utilizando uma stack moderna e escalável durante todo este processo. 
 
 ## 🏗️ 3. A Arquitetura (MDS - Modern Data Stack)
-<img src="./doc/aes1_arquitetura.png" />  
+<img src="./doc/aes1_arquitetura.avif" />  
 
 A esteira de dados foi desenhada seguindo a arquitetura Medallion (Bronze, Silver, Gold), orquestrada pelo **Apache Airflow**:  
 
@@ -103,10 +103,10 @@ O script então cria "na hora" as transações daquele dia específico na camada
 Isso garante que a pipeline seja retroalimentada constantemente, deixando sempre um novo dia de dados pronto e fresco para ser consumido, limpo e transformado pelas camadas seguintes.
 
 ### Modelo dos dados originais (raw)
-<img src="./doc/aes1_modelo_raw.png" />
+<img src="./doc/aes1_modelo_raw.avif" />
 
 ### Modelo dimensional (Gold)
-<img src="./doc/aes1_modelo_dimensional.png" />
+<img src="./doc/aes1_modelo_dimensional.avif" />
 
 ### Transformações realizadas: 
 
@@ -122,7 +122,7 @@ Ela armazena as métricas quantitativas (valor das transações, indicadores de 
 Padronização final de tipos de dados, garantia de integridade referencial entre os IDs e otimização da estrutura para que as consultas (queries) feitas pelo dashboard no DuckDB sejam ágeis e precisas.
 
 ## ⚙️ 5. A Pipeline
-<img src="./doc/aes1_pipeline_airflow.png" />  
+<img src="./doc/aes1_pipeline_airflow.avif" />  
 
 A pipeline é orquestrada de ponta a ponta pelo Apache Airflow, processando os dados de forma diária e idempotente através das seguintes etapas:
 
@@ -143,7 +143,7 @@ O ciclo se encerra com um aplicativo interativo construído em Python, que se co
 Aqui faço uma análise dos dados observados no dashboard gerado pelo projeto alinhada com as perguntas a serem respondidas. 
 
 ### Composição da Receita e Retenção
-<img src="./doc/aes1_dashboard1.png" />  
+<img src="./doc/aes1_dashboard1.avif" />  
 
 #### **Qual grupo de clientes (safra de cadastro) gera o maior volume financeiro atualmente ?**  
 A receita da empresa não é dependente de uma "safra de ouro" isolada, apresentando uma composição altamente diversificada e saudável.  
@@ -158,7 +158,7 @@ os clientes adquiridos há mais de dois anos continuam utilizando a plataforma c
 **Obs:** *A queda pontual observada na extrema direita do gráfico reflete apenas a safra do mês corrente, que ainda está em estágio inicial de formação.*
 
 ### Monitoramento de Risco (Fraudes): 
-<img src="./doc/aes1_dashboard2.png" /> 
+<img src="./doc/aes1_dashboard2.avif" /> 
 
 #### Como identificar rapidamente transações suspeitas ou anômalas, cruzando o valor atual transacionado com o histórico financeiro do cliente?
 Em uma amostra recente de 25.000 transações, o sistema detectou com sucesso uma taxa de suspeita de 4,91% (1.227 alertas), perfeitamente destacadas em vermelho no gráfico de dispersão.
